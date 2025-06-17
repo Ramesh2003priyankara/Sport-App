@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D0AAA6E4-3801-401F-ACBD-B5E03FEA18E1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>KickBlast</RootNamespace>
+    <AssemblyName>KickBlast</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Azure.Core, Version=1.38.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azure.Core.1.38.0\lib\net472\Azure.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Azure.Identity, Version=1.11.4.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azure.Identity.1.11.4\lib\netstandard2.0\Azure.Identity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.Cryptography, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Cryptography.8.0.0\lib\net462\Microsoft.Bcl.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.SqlClient, Version=6.0.0.0, Culture=neutral, PublicKeyToken=23ec7fc2d6eaa4a5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.SqlClient.6.0.1\lib\net462\Microsoft.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.8.0.0\lib\net462\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Memory, Version=8.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Memory.8.0.1\lib\net462\Microsoft.Extensions.Caching.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=8.0.0.2, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.8.0.2\lib\net462\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=8.0.0.2, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\lib\net462\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=8.0.0.2, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.8.0.2\lib\net462\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.8.0.0\lib\net462\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Identity.Client, Version=4.61.3.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Identity.Client.4.61.3\lib\net462\Microsoft.Identity.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Identity.Client.Extensions.Msal, Version=4.61.3.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Identity.Client.Extensions.Msal.4.61.3\lib\netstandard2.0\Microsoft.Identity.Client.Extensions.Msal.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Abstractions, Version=7.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Abstractions.7.5.0\lib\net472\Microsoft.IdentityModel.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=7.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.7.5.0\lib\net472\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=7.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.7.5.0\lib\net472\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols, Version=7.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Protocols.7.5.0\lib\net472\Microsoft.IdentityModel.Protocols.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect, Version=7.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Protocols.OpenIdConnect.7.5.0\lib\net472\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=7.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.7.5.0\lib\net472\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ClientModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ClientModel.1.0.0\lib\netstandard2.0\System.ClientModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.8.0.1\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=7.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.7.5.0\lib\net472\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.AccessControl, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.AccessControl.5.0.0\lib\net461\System.IO.FileSystem.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory.Data, Version=1.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.Data.1.0.2\lib\net461\System.Memory.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.5.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Pkcs, Version=8.0.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Pkcs.8.0.1\lib\net462\System.Security.Cryptography.Pkcs.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.ProtectedData, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.ProtectedData.4.7.0\lib\net461\System.Security.Cryptography.ProtectedData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.6.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=6.0.0.10, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.6.0.10\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Athlete Register From.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Athlete Register From.Designer.cs">
+      <DependentUpon>Athlete Register From.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Coach Register From.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Coach Register From.Designer.cs">
+      <DependentUpon>Coach Register From.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Competition_from.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Competition_from.Designer.cs">
+      <DependentUpon>Competition_from.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home_From.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home_From.Designer.cs">
+      <DependentUpon>Home_From.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Search_Deails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Search_Deails.Designer.cs">
+      <DependentUpon>Search_Deails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Training_Plan_From.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Training_Plan_From.Designer.cs">
+      <DependentUpon>Training_Plan_From.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_sepriyankara_KickblastDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_sepriyankara_KickblastDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_sepriyankara_KickblastDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_sepriyankara_KickblastDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_sepriyankara_KickblastDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_sepriyankara_KickblastDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_sepriyankara_KickblastDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_sepriyankara_KickblastDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_sepriyankara_KickblastDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_sepriyankara_KickblastDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_sepriyankara_KickblastDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_sepriyankara_KickblastDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_sepriyankara_KickblastDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_sepriyankara_KickblastDataSet6.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Athlete Register From.resx">
+      <DependentUpon>Athlete Register From.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Coach Register From.resx">
+      <DependentUpon>Coach Register From.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Competition_from.resx">
+      <DependentUpon>Competition_from.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home_From.resx">
+      <DependentUpon>Home_From.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Search_Deails.resx">
+      <DependentUpon>Search_Deails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Training_Plan_From.resx">
+      <DependentUpon>Training_Plan_From.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="_sepriyankara_KickblastDataSet.xsc">
+      <DependentUpon>_sepriyankara_KickblastDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_sepriyankara_KickblastDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_sepriyankara_KickblastDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_sepriyankara_KickblastDataSet.xss">
+      <DependentUpon>_sepriyankara_KickblastDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_sepriyankara_KickblastDataSet1.xsc">
+      <DependentUpon>_sepriyankara_KickblastDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="_sepriyankara_KickblastDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_sepriyankara_KickblastDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_sepriyankara_KickblastDataSet1.xss">
+      <DependentUpon>_sepriyankara_KickblastDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="_sepriyankara_KickblastDataSet2.xsc">
+      <DependentUpon>_sepriyankara_KickblastDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="_sepriyankara_KickblastDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_sepriyankara_KickblastDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_sepriyankara_KickblastDataSet2.xss">
+      <DependentUpon>_sepriyankara_KickblastDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="_sepriyankara_KickblastDataSet3.xsc">
+      <DependentUpon>_sepriyankara_KickblastDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="_sepriyankara_KickblastDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_sepriyankara_KickblastDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_sepriyankara_KickblastDataSet3.xss">
+      <DependentUpon>_sepriyankara_KickblastDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="_sepriyankara_KickblastDataSet4.xsc">
+      <DependentUpon>_sepriyankara_KickblastDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="_sepriyankara_KickblastDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_sepriyankara_KickblastDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_sepriyankara_KickblastDataSet4.xss">
+      <DependentUpon>_sepriyankara_KickblastDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="_sepriyankara_KickblastDataSet5.xsc">
+      <DependentUpon>_sepriyankara_KickblastDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="_sepriyankara_KickblastDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_sepriyankara_KickblastDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_sepriyankara_KickblastDataSet5.xss">
+      <DependentUpon>_sepriyankara_KickblastDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="_sepriyankara_KickblastDataSet6.xsc">
+      <DependentUpon>_sepriyankara_KickblastDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="_sepriyankara_KickblastDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_sepriyankara_KickblastDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_sepriyankara_KickblastDataSet6.xss">
+      <DependentUpon>_sepriyankara_KickblastDataSet6.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dark Blue and Brown Illustrative Fitness Gym Logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dark Blue and Brown Illustrative Fitness Gym Logo1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\360_F_769098747_VtgkLFhzkRum9SgMd5CTMSbx1p8tH8sc.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\360_F_298907406_MPWwwLXkNGDQjbX69PpYuE1i2EZntqs6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\majestic-sunset-over-mountain-range-photo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dark Blue and Brown Illustrative Fitness Gym Logo2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\360_F_294293388_rMi36DO4isvXoNh8B3Q5G07X0bL9z1Ng.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\why-us-bg-1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled Diagram.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled Diagram.drawio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\345.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-logout-icon-circle-photo-png-image_13603704.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\acc67010-6450-47a9-bd6b-e1eea01494bc_removalai_preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images %288%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\360_F_961274808_fX06eKzHJDCX9LO1Uew8YsL8Gk7RDZBu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download %286%29.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\password1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\modern-banner-with-abstract-low-poly-design_1048-14340.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Data Clean.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images %288%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images %288%292.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images %2817%29.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Login_37128 %281%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Login_37128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images %2818%29.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-logout-icon-circle-photo-png-image_136037041.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images %288%293.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images %288%294.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download %287%29.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\desktop-wallpaper-backgrounds-color-355-soft-background-color.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\360_F_769098747_VtgkLFhzkRum9SgMd5CTMSbx1p8tH8sc %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\a-trophy-with-confetti-and-ribbons-on-a-dark-background-photo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\a-trophy-with-confetti-and-ribbons-on-a-dark-background-photo1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\22.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-dream-trophy-red-silk-purple-background-material-picture-image_1085323.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-dream-trophy-red-silk-purple-background-material-picture-image_10853231.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images %2819%29.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\360_F_378584401_6bI0pLsok2utTyrfTvcGhjsSD4KvXm1T.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1811_SkVNQSBGQU1PIDg0NS0zOA.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1811_SkVNQSBGQU1PIDg0NS0zOA1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ath.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pose-muscle-muscle-rod-press-hd-wallpaper-preview.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pose-muscle-muscle-rod-press-hd-wallpaper-preview1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\360_F_224515382_RdooMfTyGSLFU0C3Pfk2rbjVqUy1UrZl.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\360_F_224515382_RdooMfTyGSLFU0C3Pfk2rbjVqUy1UrZl1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pose-muscle-muscle-rod-press-hd-wallpaper-preview2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pose-muscle-muscle-rod-press-hd-wallpaper-preview3.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets'))" />
+  </Target>
+</Project>
